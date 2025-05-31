@@ -1,6 +1,6 @@
 <?php
 require_once '../Controller/admin_handler.php';
-$baseUrl = '/Navyrost';
+$baseUrl = '';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $baseUrl = '/Navyrost';
     <title>Калькулятор дня тижня | Адмін-панель</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
     <div class="admin-ip">
@@ -21,23 +21,23 @@ $baseUrl = '/Navyrost';
     <div class="admin-container">
         <aside class="admin-sidebar">
             <div class="admin-logo">
-                <a href="/Navyrost/index.php"> 
-                <img src="<?= $baseUrl ?>/pic/logo main.png" alt="Navyrost Logo"></a>
+                <a href="/index.php"> 
+                <img src="/pic/logo main.png" alt="Navyrost Logo"></a>
                 <h2>Адмін-панель</h2>
 
             </div>
             
         <nav class="admin-nav">
             <ul>
-                <li><a href="<?= $baseUrl ?>/View/admin.php"><i class="fas fa-tachometer-alt"></i> Панель керування</a></li>
-                <li><a href="<?= $baseUrl ?>/View/ip_validator.php"><i class="fas fa-check-circle"></i> Валідатор IP</a></li>
-                <li  class="active"><a href="<?= $baseUrl ?>/View/admin_day_calculator.php"><i class="fas fa-calendar-alt"></i> Визначити день тижня</a></li>
-                <li><a href="<?= $baseUrl ?>/View/admin_sql_test.php"><i class="fa-solid fa-database"></i> Редактор запитів SQL</a></li>
-                <li><a href="<?= $baseUrl ?>/View/admin_db_test.php"><i class="fas fa-box"></i> Створення бази даних</a></li>
-                <li><a href="<?= $baseUrl ?>/View/admin_scripts.php"><i class="fas fa-code"></i> Управління скриптами</a></li>
-                <li><a href="<?= $baseUrl ?>/View/admin_parser.php"><i class="fas fa-code"></i> HTML-парсер</a></li>
-                <li><a href="<?= $baseUrl ?>/View/admin_xml.php"><i class="fas fa-file-export"></i> XML-інструменти</a></li>
-                <li><a href="<?= $baseUrl ?>/Controller/logout_handler.php"><i class="fas fa-sign-out-alt"></i> Вийти</a></li>
+                <li><a href="/View/admin.php"><i class="fas fa-tachometer-alt"></i> Панель керування</a></li>
+                <li><a href="/View/ip_validator.php"><i class="fas fa-check-circle"></i> Валідатор IP</a></li>
+                <li  class="active"><a href="/View/admin_day_calculator.php"><i class="fas fa-calendar-alt"></i> Визначити день тижня</a></li>
+                <li><a href="/View/admin_sql_test.php"><i class="fa-solid fa-database"></i> Редактор запитів SQL</a></li>
+                <li><a href="/View/admin_db_test.php"><i class="fas fa-box"></i> Створення бази даних</a></li>
+                <li><a href="/View/admin_scripts.php"><i class="fas fa-code"></i> Управління скриптами</a></li>
+                <li><a href="/View/admin_parser.php"><i class="fas fa-code"></i> HTML-парсер</a></li>
+                <li><a href="/View/admin_xml.php"><i class="fas fa-file-export"></i> XML-інструменти</a></li>
+                <li><a href="/Controller/logout_handler.php"><i class="fas fa-sign-out-alt"></i> Вийти</a></li>
             </ul>
         </nav>
         </aside>

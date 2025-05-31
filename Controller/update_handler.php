@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /Navyrost/View/login.php');
+    header('Location: /View/login.php');
     exit;
 }
 
@@ -18,7 +18,7 @@ $phone = trim($_POST['phone'] ?? '');
 // Можна додати додаткові перевірки, наприклад мінімальна довжина, формат телефону тощо
 if (empty($firstName) || empty($lastName)) {
     $_SESSION['profile_error'] = 'Ім’я та прізвище не можуть бути порожніми.';
-    header('Location: /Navyrost/View/account.php');
+    header('Location: /View/account.php');
     exit;
 }
 
@@ -50,5 +50,5 @@ try {
 }
 
 // Повертаємося назад на форму
-header('Location: /Navyrost/View/account.php');
+header('Location: /View/account.php');
 exit;

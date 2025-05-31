@@ -49,7 +49,7 @@ if (!$product) {
     exit("Product not found");
 }
 
-$baseUrl = '/Navyrost';
+
 $comments = $commentModel->getByProduct($productId);
 $averageRating = $commentModel->getAverageRating($productId);
 $commentsCount = $commentModel->getCountForProduct($productId);

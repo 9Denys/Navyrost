@@ -55,7 +55,6 @@ $pageTitle = !empty($filters['gender'])
     ? "ТОВАРИ ДЛЯ " . ($filters['gender'] === 'Чоловічій' ? 'ЧОЛОВІКІВ' : 'ЖІНОК')
     : "ВСІ ТОВАРИ";
 
-$baseUrl = '/Navyrost';
 
 error_log("Applied filters: " . print_r($filters, true));
 error_log("Found products: " . count($filteredProducts));

@@ -4,11 +4,11 @@ session_start();
 
 // 1) Перевіряємо, що користувач залогінений та корзина непуста
 if (empty($_SESSION['user_id'])) {
-    header('Location: /Navyrost/View/login.php');
+    header('Location: /View/login.php');
     exit;
 }
 if (empty($_SESSION['cart'])) {
-    header('Location: /Navyrost/View/catalog.php');
+    header('Location: /View/catalog.php');
     exit;
 }
 
@@ -54,5 +54,5 @@ foreach ($cart as $productId => $item) {
 unset($_SESSION['cart'], $_SESSION['discount_strategy']);
 
 // 8) Перенаправляємо користувача на «Дякуємо» чи сторінку історії
-header('Location: /Navyrost/View/account.php');
+header('Location: /View/account.php');
 exit;

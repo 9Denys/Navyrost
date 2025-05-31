@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 setInterval(function() {
-    fetch('/Navyrost/Controller/get_unread_count.php')
+    fetch('/Controller/get_unread_count.php')
         .then(response => response.json())
         .then(data => {
             const badge = document.querySelector('.notification-badge');

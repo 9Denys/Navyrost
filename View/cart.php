@@ -17,7 +17,6 @@ require_once __DIR__ . '/../Strategies/QuantityDiscountStrategy.php';
 
 $cart = $_SESSION['cart'] ?? [];
 $total = 0;
-$base = '/Navyrost';
 
 $discountApplied = false;
 $discountAmount = 0;
@@ -95,7 +94,7 @@ if (!empty($_SESSION['discount_strategy'])) {
                 </div>
                 <div class="item-price"><?= number_format($item['details']['price'], 0, ',', ' ') ?> <?= $t['currency'] ?></div>
                 <div class="item-qty">
-                    <form method="POST" action="/Navyrost/Controller/cart-handler.php" style="display:flex;align-items:center;">
+                    <form method="POST" action="/Controller/cart-handler.php" style="display:flex;align-items:center;">
                         <input type="hidden" name="action" value="update">
                         <input type="hidden" name="key" value="<?= htmlspecialchars($key) ?>">
                         <button type="submit" name="quantity" value="<?= $item['quantity'] - 1 ?>" class="quantity-btn">-</button>
@@ -105,7 +104,7 @@ if (!empty($_SESSION['discount_strategy'])) {
                 </div>
                 <div class="item-total"><?= number_format($item['details']['price'] * $item['quantity'], 0, ',', ' ') ?> <?= $t['currency'] ?></div>
                 <div class="item-remove">
-                    <form method="POST" action="/Navyrost/Controller/cart-handler.php">
+                    <form method="POST" action="/Controller/cart-handler.php">
                         <input type="hidden" name="action" value="remove">
                         <input type="hidden" name="key" value="<?= htmlspecialchars($key)?>">
                         <button type="submit" class="remove-btn"><?= $t['remove'] ?></button>
@@ -126,7 +125,7 @@ if (!empty($_SESSION['discount_strategy'])) {
             <?php else: ?>
                 <div><?= $t['total'] ?>: <strong><?= number_format($total, 0, ',', ' ') ?> <?= $t['currency'] ?></strong></div>
             <?php endif; ?>
-                <form action="/Navyrost/checkout.php" method="POST">
+                <form action="/checkout.php" method="POST">
                 <button type="submit" class="btn-checkout"><?= $t['checkout'] ?></button>
                 </form>
         </div>

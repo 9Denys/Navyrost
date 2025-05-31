@@ -2,7 +2,6 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$baseUrl = '/Navyrost';
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -12,8 +11,8 @@ $baseUrl = '/Navyrost';
     <title>Реєстрація | Navyrost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/mainStyle.css" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/signup.css" />
+    <link rel="stylesheet" href="/css/mainStyle.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
 </head>
 <body>
     <?php require_once '../blocks/header.php'; ?>
@@ -30,7 +29,7 @@ $baseUrl = '/Navyrost';
                 </div>
             <?php endif; ?>
             
-            <form action="<?= $baseUrl ?>/Controller/register_handler.php" method="POST">
+            <form action="/Controller/register_handler.php" method="POST">
                 <div class="form-group">
                     <label for="email">Електронна пошта</label>
                     <input type="email" id="email" name="email" required>
@@ -70,7 +69,7 @@ $baseUrl = '/Navyrost';
                 
                 <button type="submit" class="register-btn">Продовжити</button>
                 
-                <p class="login-link">Вже маєте обліковий запис? <a href="<?= $baseUrl ?>/View/login.php">Увійти</a></p>
+                <p class="login-link">Вже маєте обліковий запис? <a href="/View/login.php">Увійти</a></p>
             </form>
             
             <p class="terms">Створюючи обліковий запис, ви погоджуєтесь з нашими Умовами обслуговування. Для отримання додаткової інформації про практику конфіденційності Navyrost, перегляньте нашу Політику конфіденційності. Ми іноді надсилатимемо вам електронні листи, пов'язані з обліковим записом.</p>

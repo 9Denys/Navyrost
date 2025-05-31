@@ -1,6 +1,5 @@
 <?php
 require_once '../Controller/comment_handler.php';
-$baseUrl = '/Navyrost';
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -10,8 +9,8 @@ $baseUrl = '/Navyrost';
     <title><?= htmlspecialchars($product->name) ?> | Navyrost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/clothStyle.css" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/cloth.css" />
+    <link rel="stylesheet" href="/css/clothStyle.css" />
+    <link rel="stylesheet" href="/css/cloth.css" />
 </head>
 <body>
     <?php require_once '../blocks/header.php'; ?>
@@ -20,11 +19,11 @@ $baseUrl = '/Navyrost';
         <div class="product-container">
             <div class="product-gallery">
                 <div class="main-image">
-                    <img src="<?= $baseUrl ?>/<?= htmlspecialchars($product->image) ?>" alt="<?= htmlspecialchars($product->name) ?>" id="main-image" />
+                    <img src="/<?= htmlspecialchars($product->image) ?>" alt="<?= htmlspecialchars($product->name) ?>" id="main-image" />
                 </div>
                 <div class="thumbnail-container">
-                    <div class="thumbnail active" onclick="changeImage('<?= $baseUrl ?>/<?= htmlspecialchars($product->image) ?>')">
-                        <img src="<?= $baseUrl ?>/<?= htmlspecialchars($product->image) ?>" alt="Мініатюра 1" style="width:100%;height:100%;object-fit:cover;">
+                    <div class="thumbnail active" onclick="changeImage('/<?= htmlspecialchars($product->image) ?>')">
+                        <img src="/<?= htmlspecialchars($product->image) ?>" alt="Мініатюра 1" style="width:100%;height:100%;object-fit:cover;">
                     </div>
                 </div>
             </div>
@@ -79,7 +78,7 @@ $baseUrl = '/Navyrost';
                     </table>
                 </div>
 
-                <form method="POST" action="/Navyrost/Controller/cart-handler.php">
+                <form method="POST" action="/Controller/cart-handler.php">
                     <input type="hidden" name="action" value="add">
                     <input type="hidden" name="id" value="<?= $product->id ?>">
                     <input type="hidden" name="name" value="<?= htmlspecialchars($product->name) ?>">
@@ -159,7 +158,7 @@ $baseUrl = '/Navyrost';
             </form>
         <?php else: ?>
             <div class="login-prompt">
-                <p>Щоб залишити відгук, будь ласка <a href="/Navyrost/View/login.php">увійдіть</a> або <a href="/Navyrost/register.php">зареєструйтесь</a></p>
+                <p>Щоб залишити відгук, будь ласка <a href="/View/login.php">увійдіть</a> або <a href="/register.php">зареєструйтесь</a></p>
             </div>
         <?php endif; ?>
     </div>
@@ -178,7 +177,7 @@ $baseUrl = '/Navyrost';
                 <div class="comment-text"><?= nl2br(htmlspecialchars($comment['text'])) ?></div>
                 
                 <?php if (isset($_SESSION['user_id']) && ($_SESSION['user_id'] == $comment['user_id'] || ($_SESSION['user_role'] ?? '') === 'admin')): ?>
-                <form method="POST" action="/Navyrost/Controller/comment_handler.php" class="delete-comment-form">
+                <form method="POST" action="/Controller/comment_handler.php" class="delete-comment-form">
                     <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">
                     <button type="submit" name="delete_comment" class="delete-comment">Видалити</button>
                 </form>
@@ -195,6 +194,6 @@ $baseUrl = '/Navyrost';
     <?php require_once '../blocks/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= $baseUrl ?>/script/script.js"></script>
+    <script src="/script/script.js"></script>
 </body>
 </html>

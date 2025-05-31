@@ -18,18 +18,17 @@ $translations = include __DIR__ . '/../lang.php';
 $t = $translations[$lang];
 
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
-    header('Location: /Navyrost/View/admin.php');
+    header('Location: /View/admin.php');
     exit();
 }
 
 if (!isset($_SESSION['user_id'])) {
     $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
-    header('Location: /Navyrost/View/login.php');
+    header('Location: /View/login.php');
     exit();
 }
 
 $db = new Database();
-$baseUrl = '/Navyrost';
 
 $notifications = $db->execQuery("
     SELECT * FROM notifications 
@@ -67,8 +66,8 @@ $userEmail = htmlspecialchars($_SESSION['user_email'] ?? '');
     <title><?= $t['notifications'] ?> | Navyrost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/mainStyle.css" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/account.css" />
+    <link rel="stylesheet" href="/css/mainStyle.css" />
+    <link rel="stylesheet" href="/css/account.css" />
 </head>
 <body>
     <?php require_once '../blocks/header.php'; ?>
@@ -87,17 +86,17 @@ $userEmail = htmlspecialchars($_SESSION['user_email'] ?? '');
                 
                 <nav class="account-nav">
                     <ul>
-                        <li><a href="<?= $baseUrl ?>/View/account.php"><i class="fas fa-user"></i> <?= $t['personal_data'] ?></a></li>
+                        <li><a href="/View/account.php"><i class="fas fa-user"></i> <?= $t['personal_data'] ?></a></li>
                         <li class="active">
-                            <a href="<?= $baseUrl ?>/View/notifications.php">
+                            <a href="/View/notifications.php">
                                 <i class="fas fa-bell"></i> <?= $t['notifications'] ?>
                                 <?php if ($unreadCount > 0): ?>
                                     <span class="notification-badge pulse"><?= $unreadCount ?></span>
                                 <?php endif; ?>
                             </a>
                         </li>
-                        <li><a href="<?= $baseUrl ?>/View/chat.php"><i class="fas fa-comments"></i> <?= $t['support_chat'] ?></a></li>
-                        <li><a href="<?= $baseUrl ?>/Controller/logout_handler.php"><i class="fas fa-sign-out-alt"></i> <?= $t['logout'] ?></a></li>
+                        <li><a href="/View/chat.php"><i class="fas fa-comments"></i> <?= $t['support_chat'] ?></a></li>
+                        <li><a href="/Controller/logout_handler.php"><i class="fas fa-sign-out-alt"></i> <?= $t['logout'] ?></a></li>
                     </ul>
                 </nav>
             </aside>

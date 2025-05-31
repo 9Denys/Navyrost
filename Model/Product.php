@@ -196,7 +196,7 @@ class Product
 
     public static function findById(int $id): Product
     {
-        $db = new Database('C:/xampp/htdocs/Navyrost/SQLite/Mydatabase/Navyrost.db');
+        $db = new Database(__DIR__ . '/../SQLite/Mydatabase/Navyrost.db');
 
         $sql = "SELECT 
                 p.id, p.name, p.price, p.image, p.description,

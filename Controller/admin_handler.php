@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /Navyrost/login.php');
+    header('Location: /login.php');
     exit();
 }
 
@@ -12,7 +12,6 @@ require_once '../Model/Product.php';
 require_once '../functions/File.php';
 
 $db = new Database();
-$baseUrl = '/Navyrost';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])) {
     try {

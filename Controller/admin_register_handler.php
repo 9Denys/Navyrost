@@ -19,5 +19,5 @@ try {
     $_SESSION['register_error'] = $e->getMessage();
 }
 
-header('Location: /Navyrost/View/admin_signup.php');
+header('Location: /View/admin_signup.php');
 exit;

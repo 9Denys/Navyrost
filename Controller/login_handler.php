@@ -21,7 +21,7 @@ try {
 
     // Если пользователь уже авторизован
     if ($authModel->checkUserSession()) {
-        header('Location: /Navyrost/View/account.php');
+        header('Location: /View/account.php');
         exit;
     }
 
@@ -56,8 +56,8 @@ try {
 
         // Перенаправление по роли
         $redirectUrl = match($user['role']) {
-            'admin' => '/Navyrost/View/admin.php',
-            default => $_SESSION['redirect_after_login'] ?? '/Navyrost/View/account.php'
+            'admin' => '/View/admin.php',
+            default => $_SESSION['redirect_after_login'] ?? '/View/account.php'
         };
 
         if (isset($_SESSION['redirect_after_login'])) {
@@ -74,7 +74,7 @@ try {
         $_SESSION['remembered_email'] = $rememberedEmail;
     }
     
-    header('Location: /Navyrost/View/login.php');
+    header('Location: /View/login.php');
     exit;
 
 } catch (Exception $e) {
@@ -83,6 +83,6 @@ try {
     
     // Сообщение для пользователя
     $_SESSION['login_error'] = $t['login_failed'];
-    header('Location: /Navyrost/View/login.php');
+    header('Location: /View/login.php');
     exit;
 }

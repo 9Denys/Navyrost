@@ -9,8 +9,8 @@ require_once '../Controller/edit_handler.php';
     <title>Редагування товару | Navyrost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/admin.css">
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/edit.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/edit.css">
 </head>
 <body>
     <div class="admin-container">
@@ -79,7 +79,7 @@ require_once '../Controller/edit_handler.php';
                     <label>Поточне зображення</label>
                     <div class="image-preview">
                         <?php if ($product['image']): ?>
-                            <img src="<?= $baseUrl ?>/<?= htmlspecialchars($product['image']) ?>" alt="Поточне зображення">
+                            <img src="/<?= htmlspecialchars($product['image']) ?>" alt="Поточне зображення">
                         <?php endif; ?>
                         <label class="image-upload-btn">
                             <i class="fas fa-upload"></i> Змінити зображення

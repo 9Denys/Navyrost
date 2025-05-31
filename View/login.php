@@ -3,7 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$baseUrl = '/Navyrost';
 
 // Загрузка переводов
 $translations = include __DIR__ . '/../lang.php';
@@ -14,7 +13,7 @@ $t = $translations[$language] ?? $translations['ua'];
 require_once __DIR__ . '/../Model/AuthModel.php';
 $authModel = new AuthModel();
 if ($authModel->checkUserSession()) {
-    header("Location: $baseUrl/View/account.php");
+    header("Location: /View/account.php");
     exit;
 }
 
@@ -29,8 +28,8 @@ $rememberedEmail = $_COOKIE['remembered_user'] ?? '';
     <title><?= $t['login'] ?> | Navyrost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/mainStyle.css" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/signup.css" />
+    <link rel="stylesheet" href="/css/mainStyle.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
 </head>
 <body>
     <?php require_once '../blocks/header.php'; ?>
@@ -47,7 +46,7 @@ $rememberedEmail = $_COOKIE['remembered_user'] ?? '';
                 </div>
             <?php endif; ?>
             
-            <form action="<?= $baseUrl ?>/Controller/login_handler.php" method="POST">
+            <form action="/Controller/login_handler.php" method="POST">
                 <div class="form-group">
                     <label for="email"><?= $t['email'] ?></label>
                     <input type="text" id="email" name="email" value="<?= htmlspecialchars($rememberedEmail) ?>" required>
@@ -57,7 +56,7 @@ $rememberedEmail = $_COOKIE['remembered_user'] ?? '';
                     <label for="password"><?= $t['password'] ?></label>
                     <input type="password" id="password" name="password" required>
                     <div class="text-right">
-                        <a href="<?= $baseUrl ?>/forgot_password.php" class="forgot-password"><?= $t['forgot_password'] ?></a>
+                        <a href="/forgot_password.php" class="forgot-password"><?= $t['forgot_password'] ?></a>
                     </div>
                 </div>
 
@@ -70,7 +69,7 @@ $rememberedEmail = $_COOKIE['remembered_user'] ?? '';
                 
                 <p class="login-link">
                     <?= $t['no_account'] ?> 
-                    <a href="<?= $baseUrl ?>/View/signup.php"><?= $t['signup_link'] ?></a>
+                    <a href="/View/signup.php"><?= $t['signup_link'] ?></a>
                 </p>
             </form>
             
@@ -78,7 +77,7 @@ $rememberedEmail = $_COOKIE['remembered_user'] ?? '';
                 <p class="divider"><span><?= $t['or_login_with'] ?></span></p>
                 
                 <div class="social-buttons">
-                    <a href="<?= $baseUrl ?>/Controller/google_auth.php" class="social-btn google-btn">
+                    <a href="/Controller/google_auth.php" class="social-btn google-btn">
                         <i class="fab fa-google"></i> Google
                     </a>
                 </div>

@@ -3,7 +3,7 @@ session_start();
 
 // Проверка авторизации и прав администратора
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /Navyrost/login.php');
+    header('Location: /login.php');
     exit();
 }
 
@@ -11,7 +11,6 @@ require_once '../functions/Database.php';
 require_once '../functions/File.php';
 
 $db = new Database();
-$baseUrl = '/Navyrost';
 
 // Получаем ID товара
 $productId = $_GET['id'] ?? 0;

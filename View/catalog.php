@@ -8,7 +8,6 @@ $language = $_SESSION['language'] ?? 'ua';
 $translations = include __DIR__ . '/../lang.php';
 $t = $translations[$language] ?? $translations['ua'];
 
-$baseUrl = '/Navyrost';
 ?>
 
 <!DOCTYPE html>
@@ -119,7 +118,7 @@ $baseUrl = '/Navyrost';
                 <p style="grid-column: 1 / -1; text-align: center;"><?= $t['no_products'] ?></p>
             <?php else: ?>
                 <?php foreach ($filteredProducts as $product): ?>
-                    <a href="<?= $baseUrl ?>/View/cloth.php?id=<?= $product->id ?>" class="product-link">
+                    <a href="/View/cloth.php?id=<?= $product->id ?>" class="product-link">
                         <div class="product-card">
                             <div class="product-image-catalog">
                                 <img src="../<?= htmlspecialchars($product->image) ?>" alt="<?= htmlspecialchars($product->name) ?>">

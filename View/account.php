@@ -18,17 +18,17 @@ $translations = include __DIR__ . '/../lang.php';
 $t = $translations[$lang];
 
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') {
-    header('Location: /Navyrost/View/admin.php');
+    header('Location: /View/admin.php');
     exit();
 }
 
 if (!isset($_SESSION['user_id'])) {
     $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
-    header('Location: /Navyrost/View/login.php');
+    header('Location: /View/login.php');
     exit();
 }
 
-$baseUrl = '/Navyrost';
+
 
 $unreadCount = 0;
 if (isset($_SESSION['user_id'])) {
@@ -75,8 +75,8 @@ $userPhone = htmlspecialchars($_SESSION['user_phone'] ?? '');
     <title><?= $t['my_account'] ?> | Navyrost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/mainStyle.css" />
-    <link rel="stylesheet" href="<?= $baseUrl ?>/css/account.css" />
+    <link rel="stylesheet" href="/css/mainStyle.css" />
+    <link rel="stylesheet" href="/css/account.css" />
 </head>
 <body>
     <?php require_once '../blocks/header.php'; ?>
@@ -95,18 +95,18 @@ $userPhone = htmlspecialchars($_SESSION['user_phone'] ?? '');
                 
                 <nav class="account-nav">
                     <ul>
-                        <li class="active"><a href="<?= $baseUrl ?>/View/account.php"><i class="fas fa-user"></i> <?= $t['personal_data'] ?></a></li>                       
+                        <li class="active"><a href="/View/account.php"><i class="fas fa-user"></i> <?= $t['personal_data'] ?></a></li>                       
                             
                         <li>
-                            <a href="<?= $baseUrl ?>/View/notifications.php">
+                            <a href="/View/notifications.php">
                                 <i class="fas fa-bell"></i> <?= $t['notifications'] ?>
                                 <?php if ($unreadCount > 0): ?>
                                     <span class="notification-badge"><?= $unreadCount ?></span>
                                 <?php endif; ?>
                             </a>
-                            <li><a href="<?= $baseUrl ?>/View/chat.php"><i class="fas fa-comments"></i> <?= $t['support_chat'] ?></a></li>
+                            <li><a href="/View/chat.php"><i class="fas fa-comments"></i> <?= $t['support_chat'] ?></a></li>
                         </li>
-                        <li><a href="<?= $baseUrl ?>/Controller/logout_handler.php"><i class="fas fa-sign-out-alt"></i> <?= $t['logout'] ?></a></li>
+                        <li><a href="/Controller/logout_handler.php"><i class="fas fa-sign-out-alt"></i> <?= $t['logout'] ?></a></li>
                     </ul>
                 </nav>
             </aside>
@@ -116,7 +116,7 @@ $userPhone = htmlspecialchars($_SESSION['user_phone'] ?? '');
                 
                 <div class="account-section">
                     <h3 class="section-title"><?= $t['contact_info'] ?></h3>
-                    <form class="account-form" action="<?= $baseUrl ?>/Controller/update_handler.php" method="POST">
+                    <form class="account-form" action="/Controller/update_handler.php" method="POST">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="first_name"><?= $t['first_name'] ?></label>
@@ -149,7 +149,7 @@ $userPhone = htmlspecialchars($_SESSION['user_phone'] ?? '');
                         <div class="empty-history">
                             <i class="fas fa-shopping-bag"></i>
                             <p><?= $t['no_orders'] ?></p>
-                            <a href="<?= $baseUrl ?>/View/catalog.php" class="shop-btn"><?= $t['go_to_shop'] ?></a>
+                            <a href="/View/catalog.php" class="shop-btn"><?= $t['go_to_shop'] ?></a>
                         </div>
                     <?php else: ?>
                         <table class="table table-striped">
@@ -172,7 +172,7 @@ $userPhone = htmlspecialchars($_SESSION['user_phone'] ?? '');
                                 $sizeText    = htmlspecialchars($i['size'] ?? '');
                                 $qty         = (int)$i['quantity'];
                                 $lineSum     = number_format($i['price'] * $qty, 0, ',', ' ');
-                                $productUrl  = "{$baseUrl}/View/cloth.php?id={$productId}";
+                                $productUrl  = "/View/cloth.php?id={$productId}";
                             ?>
                             <tr>
                                 <td>
@@ -207,6 +207,6 @@ $userPhone = htmlspecialchars($_SESSION['user_phone'] ?? '');
     </main>
 
     <?php require_once '../blocks/footer.php'; ?>
-<script src="<?= $baseUrl ?>/script/script.js"></script>
+<script src="/script/script.js"></script>
 </body>
 </html>

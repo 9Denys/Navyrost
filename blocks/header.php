@@ -35,14 +35,14 @@ $t = $translations[$lang];
             </a>
         </div>
         <div class="logo" >
-            <a href="/Navyrost/index.php">
-                <img src="/Navyrost/pic/logo main.png" alt="NAVYROST" />
+            <a href="/index.php">
+                <img src="/pic/logo main.png" alt="NAVYROST" />
             </a>
         </div>
 <div class="action-icons" style="display: flex; align-items: center; gap: 10px;">
     <i class="fas fa-search"></i>
-    <a href="/Navyrost/View/account.php" class="fas fa-user"></a>
-    <a href="/Navyrost/View/cart.php" class="fas fa-shopping-bag" id="cart-icon"></a>
+    <a href="/View/account.php" class="fas fa-user"></a>
+    <a href="/View/cart.php" class="fas fa-shopping-bag" id="cart-icon"></a>
     
     <div class="lang-switcher" style="font-size: 14px;">
         <a href="?lang=ua" style="margin: 0 3px; text-decoration: none;">UA</a> | 
@@ -54,8 +54,8 @@ $t = $translations[$lang];
 
     <nav class="bottom-header">
         <ul class="nav-menu">
-            <li><a href="/Navyrost/view/catalog.php?gender=Чоловічій"><?= $t['men'] ?></a></li>
-            <li><a href="/Navyrost/view/catalog.php?gender=Жіночій"><?= $t['women'] ?></a></li>
+            <li><a href="/view/catalog.php?gender=Чоловічій"><?= $t['men'] ?></a></li>
+            <li><a href="/view/catalog.php?gender=Жіночій"><?= $t['women'] ?></a></li>
     </ul>
 </nav>
 </header>
